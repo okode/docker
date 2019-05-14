@@ -28,6 +28,14 @@ uplinks:
     url: https://registry.npmjs.org/
 
 packages:
+
+ '@mapfre/*':
+    allow_access: fwmovilidad
+    allow_publish: fwmovilidad # restrict to bitbucket teams
+    access: $authenticated
+    publish: $authenticated
+    proxy: npmjs
+
   '@*/*':
     # scoped packages
     access: $all
@@ -48,10 +56,6 @@ packages:
 
     # if package is not available locally, proxy requests to 'npmjs' registry
     proxy: npmjs
-
-  '@mapfre/*':
-    allow_access: fwmovilidad
-    allow_publish: fwmovilidad # restrict to bitbucket teams
 
 
 # You can specify HTTP/1.1 server keep alive timeout in seconds for incomming connections.
