@@ -2,7 +2,7 @@
   "AWSEBDockerrunVersion": "1",
   "Logging": "/var/log/sonarqube",
   "Image": {
-    "Name": "sonarqube",
+    "Name": "sonarqube:latest",
   	"Update": "true"
   },
   "Ports": [
