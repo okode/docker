@@ -1,0 +1,14 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Logging": "/var/log/verdaccio",
+  "Image": {
+    "Name": "okode/verdaccio-bitbucket:latest",
+  	"Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 4873,
+      "HostPort": 80
+    }
+  ]
+}

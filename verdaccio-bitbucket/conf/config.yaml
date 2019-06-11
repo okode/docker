@@ -29,7 +29,7 @@ uplinks:
 
 packages:
 
- '@mapfre/*':
+  '@mapfre/*':
     allow_access: fwmovilidad
     allow_publish: fwmovilidad # restrict to bitbucket teams
     access: $authenticated
