@@ -30,7 +30,8 @@ sed -i -e "allow=\"127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1\" -->/ allow=\"127\.\d
 echo "Installing additional certs"
 
 for filename in /certs/*.cer; do
-    keytool -import -trustcacerts -file "$filename" -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -storepass changeit -noprompt
+    alias=$(echo $filename| cut -d'/' -f 3)
+    keytool -import -trustcacerts -file "$filename" -alias "$alias" -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -storepass changeit -noprompt
 done
 
 source /opt/tomcat8/bin/catalina.sh run
