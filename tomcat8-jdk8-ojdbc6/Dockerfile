@@ -7,6 +7,7 @@ RUN rm -f /opt/tomcat8.tar.gz
 ADD http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar /opt/tomcat8/lib
 COPY tomcat-users.xml /opt/tomcat8/conf/
 COPY run.sh /opt/tomcat8/bin/
+COPY context.xml /opt/tomcat8/webapps/manager/META-INF/
 RUN sed -i.bak 's/HTTP\/1\.1"/HTTP\/1\.1" URIEncoding="UTF-8"/g' /opt/tomcat8/conf/server.xml
 
 VOLUME /certs
