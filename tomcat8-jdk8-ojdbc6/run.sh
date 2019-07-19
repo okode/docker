@@ -28,7 +28,7 @@ echo "Installing additional certs"
 
 for filename in /certs/*.cer; do
     alias=$(echo $filename| cut -d'/' -f 3)
-    keytool -import -trustcacerts -file "$filename" -alias "$alias" -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -storepass changeit -noprompt
+    keytool -import -trustcacerts -file "$filename" -alias "$alias" -keystore /usr/local/openjdk-8/jre/lib/security/cacerts -storepass changeit -noprompt
 done
 
 source /opt/tomcat8/bin/catalina.sh run
