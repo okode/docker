@@ -24,13 +24,11 @@ echo "Setting manager max limit from 50MB to 100MB just in case"
 
 sed -i -e "s/52428800/104857600/g" /opt/tomcat8/webapps/manager/WEB-INF/web.xml
 
-sed -i -e "s/<Valve className=\"org.apache.catalina.valves.RemoteAddrValve\"/<!--Valve className=\"org.apache.catalina.valves.RemoteAddrValve\"/g" /opt/tomcat8/webapps/manager/META-INF/context.xml
-sed -i -e "allow=\"127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1\" -->/ allow=\"127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1\" /-->" /opt/tomcat8/webapps/manager/META-INF/context.xml
-
 echo "Installing additional certs"
 
 for filename in /certs/*.cer; do
-    keytool -import -trustcacerts -file "$filename" -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -storepass changeit -noprompt
+    alias=$(echo $filename| cut -d'/' -f 3)
+    keytool -import -trustcacerts -file "$filename" -alias "$alias" -keystore /usr/local/openjdk-8/jre/lib/security/cacerts -storepass changeit -noprompt
 done
 
 source /opt/tomcat8/bin/catalina.sh run
