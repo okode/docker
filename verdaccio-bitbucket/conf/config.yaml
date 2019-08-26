@@ -20,6 +20,7 @@ auth:
   bitbucket:
     allow: fwmovilidad(admin)
     ttl: 604800 # make cache live for 7 days, optional, default = 1 day
+    cache: in-memory
 
 
 # a list of other known repositories we can talk to
@@ -30,10 +31,8 @@ uplinks:
 packages:
 
   '@mapfre/*':
-    allow_access: fwmovilidad
-    allow_publish: fwmovilidad # restrict to bitbucket teams
-    access: $authenticated
-    publish: $authenticated
+    access: fwmovilidad
+    publish: fwmovilidad(admin)
     proxy: npmjs
 
   '@*/*':
