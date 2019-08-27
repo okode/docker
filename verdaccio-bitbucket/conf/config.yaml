@@ -18,7 +18,7 @@ web:
 
 auth:
   bitbucket:
-    allow: fwmovilidad(admin)
+    allow: fwmovilidad
     ttl: 604800 # make cache live for 7 days, optional, default = 1 day
     cache: in-memory
 
