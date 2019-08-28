@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+
+  app:
+    image: okode/verdaccio-bitbucket:latest
+    ports:
+      - "80:4873"
