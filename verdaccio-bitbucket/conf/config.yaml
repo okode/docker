@@ -34,7 +34,7 @@ packages:
 
   '@mapfre/*':
     access: fwmovilidad
-    publish: fwmovilidad(admin)
+    publish: fwmovilidad(owner)
     proxy: npmjs
 
   '@*/*':
