@@ -1,9 +1,8 @@
-FROM verdaccio/verdaccio:5.31.0
+FROM verdaccio/verdaccio
 
 USER root
+RUN apk --no-cache add --virtual builds-deps build-base git python
+RUN yarn && npm rebuild bcrypt --build-from-source && yarn add okode/verdaccio-bitbucket
+USER verdaccio
 
 COPY conf /verdaccio/conf
-RUN npm install --global verdaccio-bitbucket
-COPY verdaccio-bitbucket/src /usr/local/lib/node_modules/verdaccio-bitbucket/src
-
-USER verdaccio
