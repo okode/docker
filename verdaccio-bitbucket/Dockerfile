@@ -1,8 +1,18 @@
-FROM verdaccio/verdaccio
+FROM verdaccio/verdaccio:latest
 
 USER root
-RUN apk --no-cache add --virtual builds-deps build-base git python
-RUN yarn && npm rebuild bcrypt --build-from-source && yarn add okode/verdaccio-bitbucket
+
+COPY ./verdaccio/conf /verdaccio/conf
+COPY ./verdaccio/plugins /verdaccio/plugins
+
+WORKDIR /verdaccio/plugins/verdaccio-bitbucket-auth
+RUN npm install
+RUN npx tsc
+
 USER verdaccio
 
-COPY conf /verdaccio/conf
+WORKDIR /home/ubuntu
+
+EXPOSE 4873
+
+CMD ["verdaccio", "--config", "/verdaccio/conf/config.yaml"]
