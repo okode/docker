@@ -1,0 +1,34 @@
+storage: /verdaccio/storage
+plugins: /verdaccio/plugins
+listen: 0.0.0.0:4873
+
+auth:
+  bitbucket-auth:
+    allow: fwmovilidad(owner|collaborator|member)
+
+security:
+  api:
+    jwt:
+      sign:
+        expiresIn: 1d
+  web:
+    sign:
+      expiresIn: 1d
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+packages:
+  "@fwmovilidad/**":
+    access: $authenticated
+    publish: $authenticated
+    proxy: npmjs
+  "**":
+    access: $anonymous
+    publish: $authenticated
+    proxy: npmjs
+
+log:
+  type: stdout
+  format: pretty

@@ -1,0 +1,25 @@
+{
+    "name": "@fwmovilidad/verdaccio-bitbucket-auth",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js"
+    },
+    "author": "Aarón Martín Oviedo",
+    "license": "ISC",
+    "description": "Verdaccio auth plugin for Bitbucket",
+    "keywords": [
+        "verdaccio",
+        "authentication",
+        "plugin"
+    ],
+    "devDependencies": {
+        "@verdaccio/types": "^10.8.0",
+        "typescript": "^5.8.2"
+    },
+    "dependencies": {
+        "axios": "^1.8.4",
+        "verdaccio": "^6.1.0"
+    }
+}
