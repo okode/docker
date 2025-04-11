@@ -10,10 +10,10 @@ security:
   api:
     jwt:
       sign:
-        expiresIn: 1d
+        expiresIn: 0
   web:
     sign:
-      expiresIn: 1d
+      expiresIn: 0
 
 uplinks:
   npmjs:
