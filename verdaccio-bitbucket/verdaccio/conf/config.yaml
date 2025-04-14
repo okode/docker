@@ -10,10 +10,11 @@ security:
   api:
     jwt:
       sign:
-        expiresIn: 0
+        expiresIn: 1095d
   web:
-    sign:
-      expiresIn: 0
+    jwt:
+      sign:
+        expiresIn: 1d
 
 uplinks:
   npmjs:
@@ -25,7 +26,7 @@ packages:
     publish: $authenticated
     proxy: npmjs
   "**":
-    access: $anonymous
+    access: $authenticated
     publish: $authenticated
     proxy: npmjs
 
