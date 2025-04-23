@@ -16,6 +16,8 @@ security:
       sign:
         expiresIn: 1d
 
+max_body_size: 200mb
+
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
